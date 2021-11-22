@@ -9,7 +9,7 @@
 /*   Updated: 2021/11/21 15:27:10 by ilefhail         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "printf.h"
+#include "ft_printf.h"
 
 int  ft_putunsnb(unsigned int nb, int fd)
 {	
@@ -22,10 +22,3 @@ int  ft_putunsnb(unsigned int nb, int fd)
 	}
 	return (nbrlen(nb));
 }
-// int main()
-// {
-//     int a = 464467;
-//     unsigned int o = -126789;
-//     //printf("%u\n",o);
-//     printf("\n%d",ft_putunsnb(65355,1));
-// }

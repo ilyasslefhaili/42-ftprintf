@@ -1,31 +1,55 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_connvert_hexa.c                                 :+:      :+:    :+:   */
+/*   ft_convert_hexa.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ilefhail <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/21 17:20:09 by ilefhail          #+#    #+#             */
-/*   Updated: 2021/11/21 17:20:12 by ilefhail         ###   ########.fr       */
+/*   Created: 2021/11/22 18:38:57 by ilefhail          #+#    #+#             */
+/*   Updated: 2021/11/22 18:39:00 by ilefhail         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "printf.h"
+#include "ft_printf.h"
 
-int     ft_convert_hexa(unsigned int nb)
+static  char *swap(char *str, int i)
 {
-	static int e;
-    char *hexa;
+	int j;
+	char s;
 
-	hexa = "0123456789abcdef";
-    if (nb < 16)
-    {
-        e++;
-		ft_putchar_fd(hexa[nb],1);
-    }
-	else
+	j = 0;
+	i = i - 1;
+	while (i > j)
 	{
-		ft_convert_hexa(nb / 16);
-		ft_convert_hexa(nb % 16);
+		s = str[i];
+		str[i] = str[j];
+		str[j] = s;
+		i--;
+		j++;
 	}
-	return (e);
+	return (str);
+}
+int ft_convert_hexa(unsigned int nb)
+{
+	int i;
+	char tab[100];
+	char *hexa;
+	char *str;
+
+	i = 0;
+	hexa = "0123456789abcdef";
+	if(nb == 0)
+	{
+		ft_putchar_fd('0', 1);
+		return(1);
+	}
+	while(nb)
+	{
+		tab[i] = hexa[nb % 16];
+		nb /= 16;
+		i++;
+	}
+	tab[i] = '\0';
+	str = swap(tab, ft_strlen(tab));
+	ft_putstr_fd(str ,1);
+	return(ft_strlen(tab));
 }

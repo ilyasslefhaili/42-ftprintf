@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_adress.c                                  :+:      :+:    :+:   */
+/*   ft_print_heXa.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ilefhail <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/21 21:15:07 by ilefhail          #+#    #+#             */
-/*   Updated: 2021/11/21 21:15:55 by ilefhail         ###   ########.fr       */
+/*   Created: 2021/11/22 18:25:32 by ilefhail          #+#    #+#             */
+/*   Updated: 2021/11/22 18:25:33 by ilefhail         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "ft_printf.h"
+
 static  char *swap(char *str, int i)
 {
 	int j;
@@ -28,7 +28,7 @@ static  char *swap(char *str, int i)
 	}
 	return (str);
 }
-static int ft_convert(size_t nb)
+int ft_convert_ghexa(unsigned int nb)
 {
 	int i;
 	char tab[100];
@@ -36,7 +36,7 @@ static int ft_convert(size_t nb)
 	char *str;
 
 	i = 0;
-	hexa = "0123456789abcdef";
+	hexa = "0123456789ABCDEF";
 	if(nb == 0)
 	{
 		ft_putchar_fd('0', 1);
@@ -54,11 +54,3 @@ static int ft_convert(size_t nb)
 	return(ft_strlen(tab));
 }
 
-int ft_print_adress(size_t ap)
-{
-    int a;
-    a = 2;
-    ft_putstr_fd("0x",1);
-    a += ft_convert(ap);
-    return (a);
-}

@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = printf.a
+NAME = libftprintf.a
 
 CC = @gcc -c
 
@@ -27,7 +27,8 @@ SRCS = ft_putchar_fd.c\
 		ft_putunsnb.c\
 		nbrlen.c\
 		ft_convert_hexa.c\
-		ft_print_adress.c
+		ft_print_adress.c\
+		ft_convert_ghexa.c
 
 # Colors
 C_YELLOW = \033[0;33m

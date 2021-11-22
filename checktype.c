@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
 int checktype(char param, va_list lst)
 {
@@ -30,6 +30,8 @@ int checktype(char param, va_list lst)
     else if (param == 'x')
         c = ft_convert_hexa(va_arg(lst ,int));
     else if (param == 'p')
-        c = ft_print_adress(va_arg(lst, void *));
+        c = ft_print_adress(va_arg(lst, size_t));
+    else if(param == 'X')
+        c = ft_convert_ghexa(va_arg(lst,int));
     return (c);   
 }

@@ -9,14 +9,19 @@
 /*   Updated: 2021/11/21 18:03:20 by ilefhail         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "printf.h"
+#include "ft_printf.h"
 
 int nbrlen(long nb)
 {
     int i;
 
     i = 1;
-    while(nb >= 10 )
+    if (nb < 0)
+    {
+        i++;
+        nb *= -1;
+    }
+    while (nb >= 10 )
     {
         nb = nb / 10;
         i++;

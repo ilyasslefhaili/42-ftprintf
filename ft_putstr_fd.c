@@ -9,20 +9,26 @@
 /*   Updated: 2021/11/16 18:30:01 by ilefhail         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "printf.h"
- 
-int	ft_putstr_fd(char *s, int fd)
-{
-	int	i;
+#include "ft_printf.h"
+ static void putstr_fd(char *s, int fd)
+ {
+	int i;
 
 	i = 0;
-	if (s)
-	{	
-		while (s[i] != '\0')
-		{
-			write(fd, &s[i], 1);
-			i++;
-		}
+	 while (s[i] != '\0')
+	{
+		write(fd, &s[i], 1);
+		i++;
 	}
+ }
+int	ft_putstr_fd(char *s, int fd)
+{
+	if (!s)
+	{
+		putstr_fd("(null)",fd);
+		return (6);
+	}
+	else
+		putstr_fd(s, fd);
 	return (ft_strlen(s));
 }
